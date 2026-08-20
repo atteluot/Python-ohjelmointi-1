@@ -1,2 +1,3 @@
 nimi = "Atte Luoto"
-print(nimi)
+print("hei,",nimi)
+#voisi myös vain print("hei, atte luoto") mutta tein näin mielummin.
