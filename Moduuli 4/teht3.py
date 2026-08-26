@@ -6,8 +6,10 @@ while True:
     if syöte == "":
             
             len(lista)
+
             pienin = min(lista)
             isoin = max(lista)
+            
             print(f"Loppu pienin oli {pienin} Isoin oli {isoin}.")
             break
     else:
