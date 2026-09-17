@@ -6,9 +6,21 @@ def hintaneliönä(halkaisia,hinta):
     pintaala = math.pi * (säde**2)
     hinta_neliö = hinta / pintaala
     return hinta_neliö
-
-print("Ensimmäinen pizza")
+print("---------------------------------------")
+print("---Ensimmäinen pizza---")
 halkaisia = float(input("Anna pizzan halkaisia (cm):"))
 hinta = float(input("Anna pizzan hinta (€):"))
-tulos = hintaneliönä(halkaisia, hinta)
-print(f"Pizzan neliömetrihinta on: {tulos} €/m²")
+tulos1 = hintaneliönä(halkaisia, hinta)
+print(f"Pizza 2 neliömetrihinta on: {tulos1} €/m²")
+print("---------------------------------------")
+print("---Toinen pizza---")
+halkaisia = float(input("Anna pizzan halkaisia (cm):"))
+hinta = float(input("Anna pizzan hinta (€):"))
+tulos2 = hintaneliönä(halkaisia, hinta)
+print(f"Pizza 1 neliömetrihinta on: {tulos2} €/m²")
+print("---------------------------------------")
+if tulos1 < tulos2:
+    print("Pizza 1 on parempi vastike rahalle.")
+elif tulos2 < tulos1:
+    print("Pizza 2 on parempi vastike rahalle")
+print("---------------------------------------")
