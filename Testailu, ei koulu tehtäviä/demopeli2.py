@@ -1,11 +1,3 @@
-"""
-Lentopeli - yksinkertainen runko
---------------------------------
-Lennä kentältä toiselle, kerää rahaa ja palaa kotikentalle
-ennen kuin polttoaine loppuu.
-
-Vaatii: pip install mysql-connector-python
-"""
 
 import math
 import random
@@ -26,7 +18,7 @@ YHTEYS_TIEDOT = {
 }
 
 KOTIKENTTA = "EFHK"        # Helsinki-Vantaa
-KENTTIEN_MAARA = 10         # montako kohdekenttaa arvotaan peliin
+KENTTIEN_MAARA = 9         # montako kohdekenttaa arvotaan peliin
 TAVOITE_RAHA = 400        # paljonko rahaa pitaa kerata voittaakseen
 ALKU_POLTTOAINE = 9000     # kilometreina
 
