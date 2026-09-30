@@ -32,8 +32,8 @@ def avaa_yhteys():
     return mysql.connector.connect(**YHTEYS_TIEDOT)
 
 
-def hae_kentta(yhteys, ident):
-    """Hakee yhden lentokentan ICAO-tunnuksen (ident) perusteella."""
+def hae_kentta(yhteys, ident): #done 
+    #Hakee yhden lentokentan ICAO-tunnuksen (ident) perusteella.
     kursori = yhteys.cursor(dictionary=True)
     sql = """SELECT ident, name, municipality, iso_country,
                     latitude_deg, longitude_deg
@@ -67,7 +67,7 @@ def arvo_kentat(yhteys, maara, pois_jatettava):
 # ---------------------------------------------------------------
 
 def etaisyys_km(kentta1, kentta2):
-    """Laskee kahden kentan valisen etaisyyden kilometreina (haversine)."""
+    
     R = 6371.0
     lat1 = math.radians(float(kentta1["latitude_deg"]))
     lon1 = math.radians(float(kentta1["longitude_deg"]))
