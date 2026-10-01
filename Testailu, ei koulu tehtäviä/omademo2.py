@@ -52,9 +52,8 @@ def lentokentat_random_10(yhteys):
 
     return tunnukset
 
-def nayta_tilanne(nimi, sijainti, raha, polttoaine):
+def nayta_tilanne(sijainti, raha, polttoaine):
     print("\n--- PELAAJAN TILANNE ---")
-    print("Pelaaja:", nimi)
     print("Sijainti:", sijainti)
     print("Raha:", raha, "€")
     print("Polttoaine:", polttoaine, "km")
@@ -77,40 +76,19 @@ def tulosta_kentat(yhteys, oma_sijainti, tunnukset):
               "-", round(matka), "km")
         numero = numero + 1
 
-def pelinaloitus():
-    print("\n==============================")
-    print("        LENTOPELI")
-    print("==============================")
-    print("\nTervetuloa")
-    print(f"\nLähdet matkalle Helsinki-Vantaalta ({KOTIKENTTA}) ympäri Eurooppaa.")
-    print("\nTEHTÄVÄSI:")
-    print(f"  - Kerää yhteensä {TAVOITE_RAHA} € lentämällä kentältä toiselle.")
-    print(f"  - Polttoainetta on {ALKU_POLTTOAINE} km verran. Jokainen lento kuluttaa sitä.")
-    print(f"  - Palaa lopuksi takaisin Helsinkiin ({KOTIKENTTA}).")
-    print("\nVAROITUS:")
-    print("  Jos polttoaine loppuu kesken matkan, peli on hävitty.")
-    print("  Suunnittele reittisi siis tarkasti!")
-    print("\nHyvää lentoa!\n")
-
-
 if __name__ == "__main__":
 
     yhteys = avaa_yhteys()
-    pelinaloitus()
-    pelaajan_nimi = input("Anna pelaajan nimi: ")
-    
     nykyinen_sijainti = KOTIKENTTA
     raha = 0
     polttoaine = ALKU_POLTTOAINE
-
-
     
     tunnukset = lentokentat_random_10(yhteys)
     tunnukset = [KOTIKENTTA] + tunnukset[:9]
 
     while True:
         
-        nayta_tilanne(pelaajan_nimi, nykyinen_sijainti, raha, polttoaine)
+        nayta_tilanne(nykyinen_sijainti, raha, polttoaine)
 
         print("")
         print("Lentokentät etäisyyksineen sijainnista", nykyinen_sijainti, ":")
@@ -126,11 +104,6 @@ if __name__ == "__main__":
         #tai siis en tiedä isdigit yms
         if valinta.isdigit() and 1 <= int(valinta) <= len(tunnukset):
             indeksi = int(valinta) - 1
-            polttoaine -= etaisyys_km(yhteys, nykyinen_sijainti, tunnukset[indeksi])
-            polttoaine = round(polttoaine)
-            if polttoaine < 0:
-                print("Hävisit pelin.")
-                break
             nykyinen_sijainti = tunnukset[indeksi]
         else:
             print("VÄÄRÄ VALINTA")
